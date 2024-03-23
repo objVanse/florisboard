@@ -63,7 +63,7 @@ class AppPrefs : PreferenceModel("florisboard-app-prefs") {
     inner class Advanced {
         val settingsTheme = enum(
             key = "advanced__settings_theme",
-            default = AppTheme.AUTO,
+            default = AppTheme.AUTO_AMOLED,
         )
         val settingsLanguage = string(
             key = "advanced__settings_language",
@@ -88,7 +88,7 @@ class AppPrefs : PreferenceModel("florisboard-app-prefs") {
     inner class Clipboard {
         val useInternalClipboard = boolean(
             key = "clipboard__use_internal_clipboard",
-            default = false,
+            default = true,
         )
         val syncToFloris = boolean(
             key = "clipboard__sync_to_floris",
@@ -96,11 +96,11 @@ class AppPrefs : PreferenceModel("florisboard-app-prefs") {
         )
         val syncToSystem = boolean(
             key = "clipboard__sync_to_system",
-            default = false,
+            default = true,
         )
         val historyEnabled = boolean(
             key = "clipboard__history_enabled",
-            default = false,
+            default = true,
         )
         val cleanUpOld = boolean(
             key = "clipboard__clean_up_old",
@@ -120,7 +120,7 @@ class AppPrefs : PreferenceModel("florisboard-app-prefs") {
         )
         val clearPrimaryClipDeletesLastItem = boolean(
             key = "clipboard__clear_primary_clip_deletes_last_item",
-            default = true,
+            default = false,
         )
     }
 
@@ -128,7 +128,7 @@ class AppPrefs : PreferenceModel("florisboard-app-prefs") {
     inner class Correction {
         val autoCapitalization = boolean(
             key = "correction__auto_capitalization",
-            default = true,
+            default = false,
         )
         val autoSpacePunctuation = boolean(
             key = "correction__auto_space_punctuation",
@@ -136,7 +136,7 @@ class AppPrefs : PreferenceModel("florisboard-app-prefs") {
         )
         val doubleSpacePeriod = boolean(
             key = "correction__double_space_period",
-            default = true,
+            default = false,
         )
         val rememberCapsLockState = boolean(
             key = "correction__remember_caps_lock_state",
@@ -180,11 +180,11 @@ class AppPrefs : PreferenceModel("florisboard-app-prefs") {
     inner class Dictionary {
         val enableSystemUserDictionary = boolean(
             key = "suggestion__enable_system_user_dictionary",
-            default = true,
+            default = false,
         )
         val enableFlorisUserDictionary = boolean(
             key = "suggestion__enable_floris_user_dictionary",
-            default = true,
+            default = false,
         )
     }
 
@@ -192,23 +192,23 @@ class AppPrefs : PreferenceModel("florisboard-app-prefs") {
     inner class Gestures {
         val swipeUp = enum(
             key = "gestures__swipe_up",
-            default = SwipeAction.SHIFT,
+            default = SwipeAction.MOVE_CURSOR_UP,
         )
         val swipeDown = enum(
             key = "gestures__swipe_down",
-            default = SwipeAction.HIDE_KEYBOARD,
+            default = SwipeAction.MOVE_CURSOR_DOWN,
         )
         val swipeLeft = enum(
             key = "gestures__swipe_left",
-            default = SwipeAction.SWITCH_TO_NEXT_SUBTYPE,
+            default = SwipeAction.MOVE_CURSOR_LEFT,
         )
         val swipeRight = enum(
             key = "gestures__swipe_right",
-            default = SwipeAction.SWITCH_TO_PREV_SUBTYPE,
+            default = SwipeAction.MOVE_CURSOR_RIGHT,
         )
         val spaceBarSwipeUp = enum(
             key = "gestures__space_bar_swipe_up",
-            default = SwipeAction.NO_ACTION,
+            default = SwipeAction.MOVE_CURSOR_UP,
         )
         val spaceBarSwipeLeft = enum(
             key = "gestures__space_bar_swipe_left",
@@ -220,7 +220,7 @@ class AppPrefs : PreferenceModel("florisboard-app-prefs") {
         )
         val spaceBarLongPress = enum(
             key = "gestures__space_bar_long_press",
-            default = SwipeAction.SHOW_INPUT_METHOD_PICKER,
+            default = SwipeAction.SWITCH_TO_CLIPBOARD_CONTEXT,
         )
         val deleteKeySwipeLeft = enum(
             key = "gestures__delete_key_swipe_left",
@@ -244,7 +244,7 @@ class AppPrefs : PreferenceModel("florisboard-app-prefs") {
     inner class Glide {
         val enabled = boolean(
             key = "glide__enabled",
-            default = false,
+            default = true,
         )
         val showTrail = boolean(
             key = "glide__show_trail",
@@ -252,7 +252,7 @@ class AppPrefs : PreferenceModel("florisboard-app-prefs") {
         )
         val trailDuration = int(
             key = "glide__trail_fade_duration",
-            default = 200,
+            default = 500,
         )
         val showPreview = boolean(
             key = "glide__show_preview",
@@ -272,7 +272,7 @@ class AppPrefs : PreferenceModel("florisboard-app-prefs") {
     inner class InputFeedback {
         val audioEnabled = boolean(
             key = "input_feedback__audio_enabled",
-            default = true,
+            default = false,
         )
         val audioActivationMode = enum(
             key = "input_feedback__audio_activation_mode",
@@ -280,11 +280,11 @@ class AppPrefs : PreferenceModel("florisboard-app-prefs") {
         )
         val audioVolume = int(
             key = "input_feedback__audio_volume",
-            default = 50,
+            default = 0,
         )
         val audioFeatKeyPress = boolean(
             key = "input_feedback__audio_feat_key_press",
-            default = true,
+            default = false,
         )
         val audioFeatKeyLongPress = boolean(
             key = "input_feedback__audio_feat_key_long_press",
@@ -317,11 +317,11 @@ class AppPrefs : PreferenceModel("florisboard-app-prefs") {
         )
         val hapticVibrationDuration = int(
             key = "input_feedback__haptic_vibration_duration",
-            default = 50,
+            default = 1,
         )
         val hapticVibrationStrength = int(
             key = "input_feedback__haptic_vibration_strength",
-            default = 50,
+            default = 1,
         )
         val hapticFeatKeyPress = boolean(
             key = "input_feedback__haptic_feat_key_press",
@@ -329,7 +329,7 @@ class AppPrefs : PreferenceModel("florisboard-app-prefs") {
         )
         val hapticFeatKeyLongPress = boolean(
             key = "input_feedback__haptic_feat_key_long_press",
-            default = false,
+            default = true,
         )
         val hapticFeatKeyRepeatedAction = boolean(
             key = "input_feedback__haptic_feat_key_repeated_action",
@@ -337,7 +337,7 @@ class AppPrefs : PreferenceModel("florisboard-app-prefs") {
         )
         val hapticFeatGestureSwipe = boolean(
             key = "input_feedback__haptic_feat_gesture_swipe",
-            default = false,
+            default = true,
         )
         val hapticFeatGestureMovingSwipe = boolean(
             key = "input_feedback__haptic_feat_gesture_moving_swipe",
@@ -381,7 +381,7 @@ class AppPrefs : PreferenceModel("florisboard-app-prefs") {
         )
         val hintedNumberRowEnabled = boolean(
             key = "keyboard__hinted_number_row_enabled",
-            default = true,
+            default = false,
         )
         val hintedNumberRowMode = enum(
             key = "keyboard__hinted_number_row_mode",
@@ -389,7 +389,7 @@ class AppPrefs : PreferenceModel("florisboard-app-prefs") {
         )
         val hintedSymbolsEnabled = boolean(
             key = "keyboard__hinted_symbols_enabled",
-            default = true,
+            default = false,
         )
         val hintedSymbolsMode = enum(
             key = "keyboard__hinted_symbols_mode",
@@ -397,7 +397,7 @@ class AppPrefs : PreferenceModel("florisboard-app-prefs") {
         )
         val utilityKeyEnabled = boolean(
             key = "keyboard__utility_key_enabled",
-            default = true,
+            default = false,
         )
         val utilityKeyAction = enum(
             key = "keyboard__utility_key_action",
@@ -441,11 +441,11 @@ class AppPrefs : PreferenceModel("florisboard-app-prefs") {
         )
         val keySpacingVertical = float(
             key = "keyboard__key_spacing_vertical",
-            default = 5.0f,
+            default = 0.0f,
         )
         val keySpacingHorizontal = float(
             key = "keyboard__key_spacing_horizontal",
-            default = 2.0f,
+            default = 0.0f,
         )
         val bottomOffsetPortrait = int(
             key = "keyboard__bottom_offset_portrait",
@@ -465,7 +465,7 @@ class AppPrefs : PreferenceModel("florisboard-app-prefs") {
         )
         val longPressDelay = int(
             key = "keyboard__long_press_delay",
-            default = 300,
+            default = 150,
         )
         val spaceBarSwitchesToCharacters = boolean(
             key = "keyboard__space_bar_switches_to_characters",
@@ -546,11 +546,11 @@ class AppPrefs : PreferenceModel("florisboard-app-prefs") {
     inner class Smartbar {
         val enabled = boolean(
             key = "smartbar__enabled",
-            default = true,
+            default = false,
         )
         val layout = enum(
             key = "smartbar__layout",
-            default = SmartbarLayout.SUGGESTIONS_ACTIONS_SHARED,
+            default = SmartbarLayout.SUGGESTIONS_ONLY,
         )
         val actionArrangement = custom(
             key = "smartbar__action_arrangement",
@@ -639,7 +639,7 @@ class AppPrefs : PreferenceModel("florisboard-app-prefs") {
         )
         val dayThemeId = custom(
             key = "theme__day_theme_id",
-            default = extCoreTheme("floris_day"),
+            default = extCoreTheme("floris_day_borderless"),
             serializer = ExtensionComponentName.Serializer,
         )
         val nightThemeAdaptToApp = boolean(
@@ -648,7 +648,7 @@ class AppPrefs : PreferenceModel("florisboard-app-prefs") {
         )
         val nightThemeId = custom(
             key = "theme__night_theme_id",
-            default = extCoreTheme("floris_night"),
+            default = extCoreTheme("floris_pure_night_borderless"),
             serializer = ExtensionComponentName.Serializer,
         )
         //val sunriseTime = localTime(
