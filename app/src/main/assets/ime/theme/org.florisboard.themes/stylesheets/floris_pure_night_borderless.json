@@ -1,6 +1,6 @@
 {
   "@defines": {
-    "--primary": "#388e3c",
+    "--primary": "#ff000000",
     "--primary-variant": "#306d32",
     "--secondary": "#ff9800",
     "--secondary-variant": "#804c00",
