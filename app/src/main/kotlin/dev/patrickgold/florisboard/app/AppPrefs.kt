@@ -639,7 +639,7 @@ class AppPrefs : PreferenceModel("florisboard-app-prefs") {
         )
         val dayThemeId = custom(
             key = "theme__day_theme_id",
-            default = extCoreTheme("floris_day_borderless"),
+            default = extCoreTheme("amoled_day"),
             serializer = ExtensionComponentName.Serializer,
         )
         val nightThemeAdaptToApp = boolean(
@@ -648,7 +648,7 @@ class AppPrefs : PreferenceModel("florisboard-app-prefs") {
         )
         val nightThemeId = custom(
             key = "theme__night_theme_id",
-            default = extCoreTheme("floris_pure_night_borderless"),
+            default = extCoreTheme("amoled_night"),
             serializer = ExtensionComponentName.Serializer,
         )
         //val sunriseTime = localTime(
