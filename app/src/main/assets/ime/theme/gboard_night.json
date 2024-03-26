@@ -6,20 +6,20 @@
   "isNightTheme": true,
   "attributes": {
     "window": {
-      "colorPrimary": "#5e97f6",
-      "colorPrimaryDark": "#4285f4",
-      "colorAccent": "#FF9800",
+      "colorPrimary": "#000000",
+      "colorPrimaryDark": "#000000",
+      "colorAccent": "#FFFFFF",
       "navigationBarColor": "@keyboard/background",
       "navigationBarLight": "false",
       "semiTransparentColor": "#20FFFFFF",
       "textColor": "#FFFFFF"
     },
     "keyboard": {
-      "background": "#292e33"
+      "background": "#000000"
     },
     "key": {
-      "background": "#484c4f",
-      "backgroundPressed": "#5e5e60",
+      "background": "#000000",
+      "backgroundPressed": "#000000",
       "foreground": "@window/textColor",
       "foregroundPressed": "@window/textColor",
       "showBorder": "true"
@@ -36,30 +36,30 @@
     },
     "media": {
       "foreground": "@window/textColor",
-      "foregroundAlt": "#BDBDBD"
+      "foregroundAlt": "#AAAAAA"
     },
     "oneHanded": {
-      "background": "#373c41",
-      "foreground": "#9b9da0"
+      "background": "#000000",
+      "foreground": "#FFFFFF"
     },
     "popup": {
-      "background": "#373c41",
-      "backgroundActive": "#5a5e60",
+      "background": "#000000",
+      "backgroundActive": "#FFFFFF",
       "foreground": "@window/textColor"
     },
     "privateMode": {
-      "background": "#A000FF",
+      "background": "#000000",
       "foreground": "#FFFFFF"
     },
     "smartbar": {
       "background": "transparent",
-      "foreground": "#d4d5d6",
-      "foregroundAlt": "#73FFFFFF"
+      "foreground": "#FFFFFF",
+      "foregroundAlt": "#88FFFFFF"
     },
     "smartbarButton": {
-      "background": "#FFFFFF",
-      "foreground": "#686868"
+      "background": "#000000",
+      "foreground": "#FFFFFF"
     },
-    "glideTrail": {"foreground":  "#205e97f6"}
+    "glideTrail": {"foreground":  "#FFFFFFFF"}
   }
 }
