@@ -55,10 +55,10 @@ import dev.patrickgold.florisboard.ime.text.key.KeyType
 import dev.patrickgold.florisboard.ime.text.key.UtilityKeyAction
 import dev.patrickgold.florisboard.ime.text.keyboard.TextKeyData
 import dev.patrickgold.florisboard.ime.text.keyboard.TextKeyboardCache
-import dev.patrickgold.florisboard.lib.android.AndroidKeyguardManager
-import dev.patrickgold.florisboard.lib.android.showLongToast
-import dev.patrickgold.florisboard.lib.android.showShortToast
-import dev.patrickgold.florisboard.lib.android.systemService
+import org.florisboard.lib.android.AndroidKeyguardManager
+import org.florisboard.lib.android.showLongToast
+import org.florisboard.lib.android.showShortToast
+import org.florisboard.lib.android.systemService
 import dev.patrickgold.florisboard.lib.devtools.LogTopic
 import dev.patrickgold.florisboard.lib.devtools.flogError
 import dev.patrickgold.florisboard.lib.ext.ExtensionComponentName
@@ -142,7 +142,13 @@ class KeyboardManager(context: Context) : InputKeyEventReceiver {
             prefs.keyboard.utilityKeyEnabled.observeForever {
                 updateActiveEvaluators()
             }
+            prefs.keyboard.utilityKeyAction.observeForever {
+                updateActiveEvaluators()
+            }
             activeState.collectLatestIn(scope) {
+                updateActiveEvaluators()
+            }
+            subtypeManager.subtypesFlow.collectLatestIn(scope) {
                 updateActiveEvaluators()
             }
             subtypeManager.activeSubtypeFlow.collectLatestIn(scope) {
@@ -942,6 +948,7 @@ class KeyboardManager(context: Context) : InputKeyEventReceiver {
                 }
                 KeyCode.CLIPBOARD_PASTE -> {
                     !androidKeyguardManager.let { it.isDeviceLocked || it.isKeyguardLocked }
+                        && clipboardManager.canBePasted(clipboardManager.primaryClip)
                 }
                 KeyCode.CLIPBOARD_CLEAR_PRIMARY_CLIP -> {
                     clipboardManager.canBePasted(clipboardManager.primaryClip)
